@@ -1,0 +1,122 @@
+title: $:/palettes/tw-split/Cyber
+tags: $:/tags/Palette
+name: Cyber (defec8edc0.de)
+description: Dark slate/teal palette with lime and yellow accents, tuned for long reading and writing
+type: application/x-tiddler-dictionary
+
+_dropdown-link-foreground: #c3d0d8
+_edit-background: #161d23
+_edit-background-focus: #181f26
+_sidebar-background: #07101a
+_zzz_Bricks-special-above_:
+alert-background: #3a2d05
+alert-border: #fec503
+alert-highlight: #ff7b72
+alert-muted-foreground: #8fa3af
+background: #0a141e
+blockquote-bar: #249EBD
+button-background: rgba(36,158,189,.14)
+button-border: rgba(99,164,181,.55)
+button-foreground: #a9dceb
+code-background: rgba(180,255,0,.06)
+code-border: rgba(180,255,0,.22)
+code-foreground: #a9dceb
+diff-delete-background: #4a1f24
+diff-delete-foreground: #ffd9d9
+diff-equal-background:
+diff-equal-foreground: #e1e1e1
+diff-insert-background: #1c4a22
+diff-insert-foreground: #dcffdc
+diff-invisible-background:
+diff-invisible-foreground: #8da1ad
+dirty-indicator: #fec503
+download-background: #249EBD
+download-foreground: #06101a
+dragger-background: #e1e1e1
+dragger-foreground: #06101a
+dropdown-background: #0d1c29
+dropdown-border: #28576c
+dropdown-tab-background: rgba(36,158,189,.14)
+dropdown-tab-background-selected: #0d1c29
+dropzone-background: rgba(36,158,189,.3)
+external-link-background: inherit
+external-link-background-hover: inherit
+external-link-background-visited: inherit
+external-link-foreground: #7fd1e6
+external-link-foreground-hover: inherit
+external-link-foreground-visited: #8fb9c7
+foreground: #c3d0d8
+message-background: #0d2a3a
+message-border: #249EBD
+message-foreground: #bdefff
+modal-backdrop: #02060a
+modal-background: #0d1c29
+modal-border: #28576c
+modal-footer-background: #0a1722
+modal-footer-border: #28576c
+modal-header-border: #28576c
+muted-foreground: #8fa3af
+notification-background: #1b4a5a
+notification-border: #63A4B5
+page-background: #0a141e
+pre-background: #07121b
+pre-border: #1e4455
+primary: #249EBD
+sidebar-button-foreground: #a9dceb
+sidebar-controls-foreground: #86bfd2
+sidebar-controls-foreground-hover: #fec503
+sidebar-foreground: #c3d0d8
+sidebar-foreground-shadow: rgba(0,0,0,0)
+sidebar-muted-foreground: #8da1ad
+sidebar-muted-foreground-hover: #e1e1e1
+sidebar-tab-background: #10202e
+sidebar-tab-background-selected: #07101a
+sidebar-tab-border: #28576c
+sidebar-tab-border-selected: #63A4B5
+sidebar-tab-divider: #28576c
+sidebar-tab-foreground: #a9bfca
+sidebar-tab-foreground-selected: #e3edf2
+sidebar-tiddler-link-foreground: #7fd1e6
+sidebar-tiddler-link-foreground-hover: #fec503
+site-title-foreground: #a3d900
+static-alert-foreground: #8da1ad
+tab-background: #10202e
+tab-background-selected: #0f1f2e
+tab-border: #28576c
+tab-border-selected: #63A4B5
+tab-divider: #28576c
+tab-foreground: #a9bfca
+tab-foreground-selected: #e3edf2
+table-border: rgba(99,164,181,.28)
+table-footer-background: rgba(36,158,189,.18)
+table-header-background: rgba(36,158,189,.16)
+tag-background: #123a4a
+tag-foreground: #bdefff
+tiddler-background: #0f1f2e
+tiddler-border: #1f4256
+tiddler-controls-foreground: #86bfd2
+tiddler-controls-foreground-hover: #fec503
+tiddler-controls-foreground-selected: #fec503
+tiddler-editor-background: #161d23
+tiddler-editor-border: #2b4352
+tiddler-editor-border-image: #2b4352
+tiddler-editor-fields-even: #10202e
+tiddler-editor-fields-odd: #0d1c29
+tiddler-info-background: #0c1b27
+tiddler-info-border: #28576c
+tiddler-info-tab-background: #0c1b27
+tiddler-link-background: #0f1f2e
+tiddler-link-foreground: #63c1dc
+tiddler-subtitle-foreground: #8fa3af
+tiddler-title-foreground: #a3d900
+toolbar-cancel-button:
+toolbar-close-button:
+toolbar-delete-button:
+toolbar-done-button:
+toolbar-edit-button:
+toolbar-info-button:
+toolbar-new-button:
+toolbar-options-button:
+toolbar-save-button:
+untagged-background: #3a4a56
+very-muted-foreground: #7596a5

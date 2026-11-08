@@ -1,0 +1,6 @@
+title: $:/plugins/tw-enc-sync/ui/ViewToolbar/publish-post
+tags: $:/tags/ViewToolbar
+caption: {{$:/core/images/globe}} publish post
+description: Preview and publish this note as a public blog post (an untagged note is turned into a blog post first, after asking)
+
+<$list filter="[<currentTiddler>!is[system]!has[draft.of]]" variable="ignore"><$button message="tm-enc-post-preview" param=<<currentTiddler>> tooltip="Blog post: preview and publish this note (nothing is published before you confirm)" aria-label="publish post" class=<<tv-config-toolbar-class>>>{{$:/core/images/globe}}<$list filter="[<tv-config-toolbar-text>match[yes]]"><span class="tc-btn-text">publish post</span></$list></$button></$list>

@@ -1,0 +1,10 @@
+{
+  "title": "$:/plugins/tw-enc-sync",
+  "name": "Encrypted per-tiddler GitHub sync",
+  "description": "Syncadaptor storing every tiddler as an opaque, AES-GCM encrypted file in a GitHub Pages repo, lazily loaded",
+  "author": "tw-split",
+  "version": "0.1.0",
+  "core-version": ">=5.1.21",
+  "plugin-priority": "10",
+  "list": "readme"
+}

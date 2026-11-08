@@ -1,0 +1,43 @@
+title: $:/plugins/tw-enc-sync/readme
+
+! Encrypted per-tiddler sync
+
+Every tiddler is stored as an opaque AES-256-GCM encrypted file; only the manifest and the tiddlers you open are loaded. ''Save'' (Ctrl+S or the save button) writes pending changes to every ''save target''; the second page-control button ''Publish to GitHub now'' makes the GitHub repository match this wiki whatever the targets are (it also seeds an empty repository from your local files).
+
+!! Save targets
+
+`$:/config/ext/enc/SaveTarget` is a comma list of `github`, `folder`, `zip` (spaces are fine, unknown words are ignored; it can be changed in the app). Default: opened from `file:` -> `folder` (`zip` if the browser has no File System Access API), opened from `http(s)` -> `github`.
+
+* `github`: one commit via the Git Data API, a few seconds after you stop editing and on Save. Token as before (Control Panel > Saving > GitHub), kept in ''sessionStorage'' (this tab) instead of `localStorage`; change with `$:/config/ext/enc/TokenStorage` = `memory` or `local`. Use a fine-grained token limited to this one repository: Contents read and write, Metadata read.
+* `folder`: writes the changed encrypted files and the new manifest straight into the wiki folder (the one that contains `tw.html`). The first Save asks you to pick it once; the permission is remembered. Files first, manifest last. The timer only writes here if the permission is already granted, it never opens a dialog.
+* `zip`: Save downloads `tw-update-<counter>.zip` (changed files, the new manifest, and `_remove.txt` with paths to delete); unzip it over the wiki folder and delete the files listed in `_remove.txt`. Only on Save, never from the timer.
+
+<$list filter="[[$:/temp/ext/enc/status]is[tiddler]]">Targets: <code><$view tiddler="$:/temp/ext/enc/status" field="targets"/></code> -- unsaved local changes: <b><$view tiddler="$:/temp/ext/enc/status" field="unsaved-local"/></b>, not yet published to GitHub: <b><$view tiddler="$:/temp/ext/enc/status" field="unpublished"/></b></$list>
+
+For safety, raw HTML that could run script in this page is neutered: `srcdoc` attributes and `javascript:` URLs are dropped, `base`/`meta`/`link` elements are inert, and messages from other windows are ignored. Create `$:/config/ext/enc/AllowActiveHtml` with the text `yes` to switch the element filter off (only if you trust every tiddler). Tiddler titles are kept out of the browser console unless `$:/config/ext/enc/ConsoleLog` is `yes`.
+
+<$list filter="[[$:/temp/ext/enc/status]is[tiddler]]">Status: <code><$text text={{$:/temp/ext/enc/status}}/></code></$list>
+<$list filter="[[$:/temp/ext/enc/error]is[tiddler]]"><div class="tc-alert-highlight"><$text text={{$:/temp/ext/enc/error}}/></div></$list>
+
+!! Content-Security-Policy (optional)
+
+`twmigrate.py migrate --csp` adds a CSP `<meta>`: inline scripts only by hash, `connect-src` limited to this site and the GitHub API origin, no external images/frames, no `<object>`. `'unsafe-eval'` has to stay because TiddlyWiki loads its own modules with `eval`. Consequences: external images/`_canonical_uri` files, embedded third-party iframes and the online plugin library stop working unless you extend the policy in the generated `tw.html`. Changing `tw.html` (any plugin update) means re-running `migrate`/`rotate`, which recomputes the hashes.
+
+!! Publishing a note as a blog post
+
+# Write the note as usual (Markdown is the default type; WikiText works too if it converts cleanly).
+# Press the ''globe'' button in the note's toolbar. If the note is not a blog post yet, you are asked once whether to turn it into one (this only adds the tag `publish:blog`).
+# A preview shows the exact Markdown that becomes ''public'' and where (`content/blog/<slug>/index.md`, or `index.de.md` for German). Press //Publish…// and confirm the browser dialog. The website rebuilds in about a minute.
+# A status bar under the note now shows the live link, //Update…// (publish the current version again) and //Unpublish…//.
+
+Filled in automatically: title, date (created), last update (modified), a description from your first paragraph, the URL (from the title, fixed after the first publish), reading time (by the website).
+
+Optional, in the //Blog post// panel of the editor (shown for tagged notes): //Summary// (`summary`), //Post tags// (`publish-tags`; your vault tags are never copied), //Language// (`publish-lang`: en/de), //URL// (`publish-slug`), //Images// (`publish-media`, only for images not used in the text).
+
+Images: import a PNG/JPEG/WebP as an image tiddler and use it in the text as `![alt text](#Image title)` or `[img[Image title]]`; it is published next to the post automatically. External image URLs are refused (the website only shows its own images).
+
+Links: `[[Other note]]` becomes a link if that note is published, otherwise plain text. Refused (they could pull in private notes or run code): transclusions `{{…}}`, macros `<<…>>`, widgets `<$…>`, raw HTML, pragmas; inside code blocks they are fine. Invisible or bidi-control Unicode is refused too.
+
+German and English versions of one post: give both notes the same //URL// (`publish-slug`) and set //Language// to Deutsch on the German one.
+
+See the threat model, section //Publishing//.

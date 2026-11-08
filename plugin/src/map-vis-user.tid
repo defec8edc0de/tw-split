@@ -1,0 +1,18 @@
+title: $:/plugins/felixhayashi/tiddlymap/config/vis/user
+type: application/json
+description: Dark-theme defaults for TiddlyMap (shipped by tw-enc-sync; create a real tiddler with this title to override)
+
+{
+  "nodes": {
+    "shape": "box", "borderWidth": 1, "margin": 8,
+    "color": {"border": "#249EBD", "background": "#123a4a",
+      "highlight": {"border": "#fec503", "background": "#1b4a5a"}, "hover": {"border": "#a3d900", "background": "#1b4a5a"}},
+    "font": {"color": "#d5e0e6", "size": 14, "face": "Segoe UI, Open Sans, system-ui, sans-serif"}
+  },
+  "edges": {
+    "width": 1.2, "smooth": {"enabled": true},
+    "color": {"color": "#4B6F78", "highlight": "#fec503", "hover": "#63A4B5", "inherit": false},
+    "font": {"color": "#8fa3af", "size": 11, "strokeWidth": 0, "face": "Segoe UI, Open Sans, system-ui, sans-serif"},
+    "arrows": {"to": {"enabled": true, "scaleFactor": 0.6}}
+  }
+}

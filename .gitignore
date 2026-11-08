@@ -1,0 +1,5 @@
+tests/shots/
+tests/node/node_modules/
+backup/
+out/
+.venv/

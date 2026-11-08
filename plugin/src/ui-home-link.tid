@@ -1,0 +1,6 @@
+title: $:/plugins/tw-enc-sync/ui/home-link
+tags: $:/tags/PageControls
+caption: ↩ Website
+description: Back to the website this wiki lives on (URL in $:/config/ext/site/HomeURL, default "/"; only "/…" and "https://…" are accepted)
+
+<$set name="url" value={{$:/config/ext/site/HomeURL}} emptyValue="/"><$list filter="[<url>prefix[/]!prefix[//]] [<url>prefix[https://]] +[limit[1]]" variable="ok"><a href=<<url>> class="tc-btn-invisible enc-home-link" title="Back to the website" aria-label="Back to the website">↩<$list filter="[<tv-config-toolbar-text>match[yes]]" variable="ignore"><span class="tc-btn-text"> Website</span></$list></a></$list></$set>

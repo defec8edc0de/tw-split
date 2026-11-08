@@ -1,0 +1,13 @@
+title: $:/plugins/tw-enc-sync/ui/publish-modal
+subtitle: Publish as a public blog post
+footer: <$button message="tm-close-tiddler">Cancel</$button> <$list filter="[[$:/temp/ext/pub/preview]post-published[yes]]" variable="ignore"><$button message="tm-enc-post-unpublish" class="tc-btn-invisible"><$action-sendmessage $message="tm-close-tiddler"/>Unpublish…</$button> </$list><$button message="tm-enc-post-confirm" class="tc-btn-big-green"><$action-sendmessage $message="tm-close-tiddler"/>Publish…</$button>
+
+<div class="enc-pub-warn">
+
+This exact text becomes ''public'' at <code><$text text={{$:/temp/ext/pub/preview!!post-path}}/></code> once you confirm (a browser dialog asks once more). Git history keeps it even after unpublishing. Vault tags are not copied, links to unpublished tiddlers become plain text.
+
+</div>
+
+<$list filter="[[$:/temp/ext/pub/preview]has[post-media]]" variable="ignore">Images: <code><$text text={{$:/temp/ext/pub/preview!!post-media}}/></code></$list>
+
+<$codeblock code={{$:/temp/ext/pub/preview}} language="markdown"/>

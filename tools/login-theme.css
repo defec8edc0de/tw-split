@@ -1,0 +1,41 @@
+/* tw-split login theme: cyberpunk / matrix, palette taken from defec8edc0.de (#3a5a75 slate, #63A4B5/#249EBD teal, #B4FF00 lime, #fec503 yellow, #BA4E4E red, #e1e1e1 text).
+   Everything is scoped to html.tw-login, a class that the script removes as soon as TiddlyWiki renders, so the wiki UI is never affected. */
+html.tw-login body.tc-body{background:radial-gradient(ellipse at 50% 35%,#12293c 0%,#0b1824 55%,#050b12 100%) fixed;color:#e1e1e1;font-family:ui-monospace,"Cascadia Mono","SFMono-Regular",Consolas,"Courier New",monospace;overflow:hidden}
+html.tw-login #tw-rain{position:fixed;left:0;top:0;width:100%;height:100%;z-index:1;opacity:.6;pointer-events:none;transition:opacity .7s ease}
+html.tw-login #tw-rain.tw-out{opacity:0}
+html.tw-login body::after{content:"";position:fixed;left:0;top:0;right:0;bottom:0;z-index:2;pointer-events:none;
+ background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.2) 3px),radial-gradient(ellipse at center,rgba(0,0,0,0) 52%,rgba(0,0,0,.6) 100%);animation:tw-flicker 7s infinite steps(1)}
+html.tw-login .tc-password-wrapper{position:fixed;left:50%;top:50%;margin:0;transform:translate(-50%,-50%);width:min(360px,86vw);box-sizing:border-box;padding:46px 26px 22px;
+ border:1px solid rgba(36,158,189,.6);border-radius:2px;background:rgba(7,18,28,.84);color:#e1e1e1;text-shadow:none;
+ box-shadow:0 0 0 1px rgba(99,164,181,.12),0 0 46px rgba(36,158,189,.28),inset 0 0 34px rgba(36,158,189,.07);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:tw-rise .9s cubic-bezier(.2,.8,.2,1) both}
+html.tw-login .tc-password-wrapper::before{content:"ACCESS NODE // 0xDEFEC8ED";position:absolute;left:0;right:0;top:0;padding:8px 14px;font-size:10px;letter-spacing:.22em;color:#63A4B5;
+ background:rgba(36,158,189,.09);border-bottom:1px solid rgba(99,164,181,.28);white-space:nowrap;overflow:hidden}
+html.tw-login .tc-password-wrapper::after{content:"";position:absolute;left:-5px;top:-5px;right:-5px;bottom:-5px;pointer-events:none;
+ background:linear-gradient(#fec503,#fec503) 0 0/16px 2px no-repeat,linear-gradient(#fec503,#fec503) 0 0/2px 16px no-repeat,
+ linear-gradient(#fec503,#fec503) 100% 0/16px 2px no-repeat,linear-gradient(#fec503,#fec503) 100% 0/2px 16px no-repeat,
+ linear-gradient(#fec503,#fec503) 0 100%/16px 2px no-repeat,linear-gradient(#fec503,#fec503) 0 100%/2px 16px no-repeat,
+ linear-gradient(#fec503,#fec503) 100% 100%/16px 2px no-repeat,linear-gradient(#fec503,#fec503) 100% 100%/2px 16px no-repeat}
+html.tw-login .tc-password-wrapper h1{position:relative;margin:0 0 20px;padding:0;font-weight:600;font-size:17px;line-height:1.3;font-family:inherit;letter-spacing:.14em;text-transform:uppercase;color:#e1e1e1;text-shadow:0 0 9px rgba(180,255,0,.4)}
+html.tw-login .tc-password-wrapper h1[data-text]::before,html.tw-login .tc-password-wrapper h1[data-text]::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden;opacity:0;pointer-events:none}
+html.tw-login .tc-password-wrapper h1[data-text]::before{color:#249EBD;animation:tw-glitch-a 6s infinite steps(1)}
+html.tw-login .tc-password-wrapper h1[data-text]::after{color:#BA4E4E;animation:tw-glitch-b 6s infinite steps(1)}
+html.tw-login .tc-password-wrapper form{margin:0;text-align:left}
+html.tw-login .tc-password-wrapper input{display:block;width:100%;box-sizing:border-box;margin:0 0 12px;padding:11px 12px;font:inherit;font-size:15px;letter-spacing:.16em;color:#B4FF00;caret-color:#fec503;
+ background:rgba(4,10,16,.85);border:1px solid rgba(99,164,181,.4);border-left:3px solid #fec503;border-radius:0;outline:none;transition:border-color .2s,box-shadow .2s}
+html.tw-login .tc-password-wrapper input::placeholder{color:#4B6F78;letter-spacing:.1em;text-transform:lowercase}
+html.tw-login .tc-password-wrapper input:focus{border-color:#fec503;box-shadow:0 0 14px rgba(254,197,3,.32)}
+html.tw-login .tc-password-wrapper button{display:block;width:100%;box-sizing:border-box;margin:0 0 8px;padding:11px;font:inherit;font-size:13px;letter-spacing:.34em;text-transform:uppercase;cursor:pointer;
+ color:#63A4B5;background:transparent;border:1px solid #249EBD;border-radius:0;transition:background .2s,color .2s,box-shadow .2s}
+html.tw-login .tc-password-wrapper button:hover,html.tw-login .tc-password-wrapper button:focus{background:#249EBD;color:#06101a;box-shadow:0 0 18px rgba(36,158,189,.55);outline:none}
+html.tw-login .tc-password-wrapper form::after{content:"// unauthorised access is logged_";display:block;margin-top:14px;font-size:10px;letter-spacing:.12em;color:#7F7F93;animation:tw-blink 1.6s infinite steps(1)}
+html.tw-working .tc-password-wrapper::before{content:"DECRYPTING // PLEASE WAIT ...";color:#B4FF00;animation:tw-blink .5s infinite steps(1)}
+html.tw-working .tc-password-wrapper form{opacity:.45;pointer-events:none}
+html.tw-deny .tc-password-wrapper{border-color:#BA4E4E;box-shadow:0 0 0 1px rgba(186,78,78,.25),0 0 46px rgba(186,78,78,.35),inset 0 0 34px rgba(186,78,78,.08);animation:tw-shake .45s both}
+html.tw-deny .tc-password-wrapper::before{content:"ACCESS DENIED // TRY AGAIN";color:#BA4E4E;background:rgba(186,78,78,.1);border-bottom-color:rgba(186,78,78,.4)}
+@keyframes tw-rise{from{opacity:0;transform:translate(-50%,-46%) scale(.97)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes tw-shake{0%,100%{transform:translate(-50%,-50%)}20%{transform:translate(calc(-50% - 9px),-50%)}40%{transform:translate(calc(-50% + 8px),-50%)}60%{transform:translate(calc(-50% - 5px),-50%)}80%{transform:translate(calc(-50% + 3px),-50%)}}
+@keyframes tw-blink{0%,49%{opacity:1}50%,100%{opacity:.25}}
+@keyframes tw-flicker{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.82}94%{opacity:1}97%{opacity:.9}}
+@keyframes tw-glitch-a{0%,90%,100%{opacity:0}91%{opacity:.85;transform:translate(-2px,0);clip-path:inset(10% 0 55% 0)}93%{opacity:.85;transform:translate(2px,0);clip-path:inset(60% 0 8% 0)}95%{opacity:0}}
+@keyframes tw-glitch-b{0%,91%,100%{opacity:0}92%{opacity:.8;transform:translate(2px,0);clip-path:inset(45% 0 30% 0)}94%{opacity:.8;transform:translate(-2px,0);clip-path:inset(5% 0 70% 0)}96%{opacity:0}}
+@media (prefers-reduced-motion:reduce){html.tw-login *,html.tw-login *::before,html.tw-login *::after,html.tw-login body::after,html.tw-working *,html.tw-deny *{animation:none!important;transition:none!important}}

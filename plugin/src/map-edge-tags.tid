@@ -1,0 +1,5 @@
+title: $:/plugins/felixhayashi/tiddlymap/graph/edgeTypes/tw-list:tags
+description: A tag that refers to a tiddler of the same name.
+style: {"color":{"color":"#3a7487","highlight":"#63A4B5"},"dashes":false,"width":1}
+label: tagged with
+show-label: false

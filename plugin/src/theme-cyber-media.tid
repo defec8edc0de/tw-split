@@ -1,0 +1,5 @@
+title: $:/config/ext/theme/CyberMedia
+type: text/plain
+description: "all" = Cyber styling on; create a tiddler with this title and the text "not all" to switch the overlay stylesheet off
+
+all

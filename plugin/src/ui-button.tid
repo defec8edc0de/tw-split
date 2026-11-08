@@ -1,0 +1,6 @@
+title: $:/plugins/tw-enc-sync/ui/button
+tags: $:/tags/PageControls
+caption: Save encrypted changes now
+description: Save pending encrypted tiddler changes to every configured target (GitHub / local folder / zip)
+
+<$button message="tm-enc-flush" tooltip="Save pending encrypted changes to all configured targets now (same as Ctrl+S)" aria-label="Save now" class=<<tv-config-toolbar-class>>>{{$:/core/images/save-button}}</$button>

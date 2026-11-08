@@ -1,0 +1,5 @@
+title: $:/state/ext/edit/HideMedia
+type: text/plain
+description: "all" = type selector and field editor are hidden while editing; the editor toolbar button "Type & fields" toggles it ("not all" = shown)
+
+all

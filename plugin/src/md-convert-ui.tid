@@ -1,0 +1,33 @@
+title: $:/plugins/tw-enc-sync/md-convert/ui
+tags: $:/tags/ControlPanel
+caption: Markdown
+description: Which notes are WikiText, Markdown, or need review
+
+\define md-status() $:/temp/ext/md/status
+\define md-list(name) <$list filter="[list[$:/temp/ext/md/list/$name$]sort[title]]" variable="item"><li><$link to=<<item>>><$text text=<<item>>/></$link> <span class="md-reason"><$text text={{{ [[$:/temp/ext/md/reasons]getindex<item>] }}}/></span></li></$list>
+
+Notes written in WikiText are converted to Markdown automatically, once, when the wiki is first opened: only notes whose syntax is fully understood and whose Markdown renders exactly like the WikiText. Everything else (macros, widgets, transclusions, definition lists, complex tables, ...) is left untouched and listed below under //Needs review// with the reason. New tiddlers start as Markdown.
+
+<$button message="tm-md-scan">Scan</$button>
+
+<p><strong><$text text={{{ [<md-status>get[message]] }}}/></strong></p>
+
+<$list filter="[<md-status>has[scanned]]" variable="ignore">
+
+|Last scan |<$text text={{{ [<md-status>get[scanned]] }}} /> |
+|Still WikiText and convertible |<$text text={{{ [<md-status>get[n-convertible]] }}} /> |
+|Needs review (stays WikiText) |<$text text={{{ [<md-status>get[n-review]] }}} /> |
+|Markdown |<$text text={{{ [<md-status>get[n-markdown]] }}} /> |
+|Not loaded yet |<$text text={{{ [<md-status>get[n-unloaded]] }}} /> |
+|Skipped (system, media, other types) |<$text text={{{ [<md-status>get[n-skipped]] }}} /> |
+
+!!! Still WikiText and convertible
+<ul><<md-list convertible>></ul>
+
+!!! Needs review (stays WikiText)
+<ul><<md-list review>></ul>
+
+!!! Markdown
+<ul><<md-list markdown>></ul>
+
+</$list>

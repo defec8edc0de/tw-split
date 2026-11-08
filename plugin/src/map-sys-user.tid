@@ -1,0 +1,5 @@
+title: $:/plugins/felixhayashi/tiddlymap/config/sys/user
+type: application/json
+description: Map tab follows the current note (shipped by tw-enc-sync; create a real tiddler with this title to override)
+
+{"defaultView": "Live View"}

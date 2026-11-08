@@ -1,0 +1,15 @@
+title: $:/plugins/tw-enc-sync/ui/EditorToolbar/more
+tags: $:/tags/EditorToolbar
+caption: Type & fields
+description: Show or hide the type selector, the field editor and the "add field" form
+custom-icon: yes
+condition: [<targetTiddler>]
+
+<$reveal state="$:/state/ext/edit/HideMedia" type="nomatch" text="not all" tag="span">
+{{$:/core/images/info-button}}
+<$action-setfield $tiddler="$:/state/ext/edit/HideMedia" text="not all"/>
+</$reveal>
+<$reveal state="$:/state/ext/edit/HideMedia" type="match" text="not all" tag="span">
+{{$:/core/images/up-arrow}}
+<$action-setfield $tiddler="$:/state/ext/edit/HideMedia" text="all"/>
+</$reveal>

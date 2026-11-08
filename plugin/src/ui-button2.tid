@@ -1,0 +1,6 @@
+title: $:/plugins/tw-enc-sync/ui/button-publish
+tags: $:/tags/PageControls
+caption: Publish to GitHub now
+description: Publish the whole local state to GitHub now, whatever the save targets are (seeds an empty repository)
+
+<$button message="tm-enc-publish" tooltip="Publish to GitHub now: makes the repository match this wiki (seeds an empty repository from your local files)" aria-label="Publish to GitHub now" class=<<tv-config-toolbar-class>>>{{$:/core/images/export-button}}</$button>

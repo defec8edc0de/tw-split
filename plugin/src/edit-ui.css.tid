@@ -1,0 +1,8 @@
+title: $:/plugins/tw-enc-sync/theme/edit-ui.css
+tags: $:/tags/Stylesheet
+type: text/vnd.tiddlywiki
+
+/* The tiddler type selector, the field editor (e.g. tmap.id) and the "add field" form are rarely needed: they are hidden while $:/state/ext/edit/HideMedia is "all" (the default) and shown when the editor toolbar button "Type & fields" sets it to "not all".    Only the TYPE dropdown is hidden (.tc-edit-type-dropdown); .tc-block-dropdown-wrapper is shared with the tag picker and must stay visible. */
+@media {{$:/state/ext/edit/HideMedia}} {
+html body .tc-tiddler-edit-frame .tc-type-selector, html body .tc-tiddler-edit-frame .tc-edit-type-dropdown, html body .tc-tiddler-edit-frame .tc-edit-fields, html body .tc-tiddler-edit-frame .tc-edit-field-add { display: none !important; }
+}

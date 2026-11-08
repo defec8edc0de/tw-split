@@ -1,0 +1,5 @@
+title: $:/config/ext/DefaultNewType
+type: text/plain
+description: Content type preselected for NEW tiddlers (empty = off)
+
+text/x-markdown

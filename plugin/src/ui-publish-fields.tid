@@ -1,0 +1,18 @@
+title: $:/plugins/tw-enc-sync/ui/EditTemplate/publish-fields
+tags: $:/tags/EditTemplate
+list-after: $:/core/ui/EditTemplate/tags
+description: "Blog post" panel in the editor of tiddlers tagged publish:blog (summary, post tags, language, slug, images)
+
+<$list filter="[all[current]tag[publish:blog]]" variable="ignore">
+<div class="enc-pub-fields">
+<div class="enc-pub-head">Blog post <span class="enc-pub-note">all optional; only these fields and the text are published, your vault tags stay private</span></div>
+<table class="enc-pub-table">
+<tr><th>Summary</th><td><$edit-text field="summary" tag="input" placeholder="one sentence for lists and search engines (default: your first paragraph)"/></td></tr>
+<tr><th>Post tags</th><td><$edit-text field="publish-tags" tag="input" placeholder="e.g. kubernetes cloud (space separated, [[two words]] in brackets)"/></td></tr>
+<tr><th>Language</th><td><$select field="publish-lang" default="en"><option value="en">English</option><option value="de">Deutsch</option></$select></td></tr>
+<tr><th>URL</th><td><$list filter="[all[current]has[publish-sha]]" emptyMessage="""<$edit-text field="publish-slug" tag="input" placeholder="/blog/… (default: made from the title)"/>"""><code>/blog/<$view field="publish-slug"/>/</code> (fixed after the first publish)</$list></td></tr>
+<tr><th>Images</th><td><$edit-text field="publish-media" tag="input" placeholder="extra images (optional; images used in the text are added automatically)"/></td></tr>
+</table>
+<div class="enc-pub-note">Date, last update, reading time and the URL are filled in automatically. Save, then use the globe button to preview and publish.</div>
+</div>
+</$list>

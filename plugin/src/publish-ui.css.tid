@@ -1,0 +1,15 @@
+title: $:/plugins/tw-enc-sync/theme/publish.css
+tags: $:/tags/Stylesheet
+
+.enc-pub-warn { border-left: 3px solid #fec503; padding: .2em .9em; margin-bottom: 1em; background: rgba(254,197,3,.08); }
+.enc-pub-fields { margin: .6em 0 1em; padding: .6em .8em; border: 1px solid rgba(254,197,3,.35); border-left: 3px solid #fec503; background: rgba(254,197,3,.05); }
+.enc-pub-head { font-weight: 600; margin-bottom: .4em; }
+.enc-pub-note { font-weight: 400; font-size: .85em; opacity: .75; }
+.enc-pub-table { width: 100%; border-collapse: collapse; border: 0; }
+.enc-pub-table th { text-align: left; font-weight: 400; white-space: nowrap; padding: .2em .8em .2em 0; width: 7em; border: 0; }
+.enc-pub-table td { padding: .2em 0; border: 0; }
+.enc-pub-table input { width: 100%; box-sizing: border-box; }
+.enc-pub-bar { display: flex; flex-wrap: wrap; gap: .4em .9em; align-items: center; margin: .3em 0 .8em; padding: .35em .7em; border-left: 3px solid #fec503; background: rgba(254,197,3,.06); font-size: .9em; }
+.enc-pub-state { opacity: .85; }
+.enc-pub-link { font-family: "JetBrains Mono", ui-monospace, monospace; }
+.enc-pub-btn { text-decoration: underline; cursor: pointer; }

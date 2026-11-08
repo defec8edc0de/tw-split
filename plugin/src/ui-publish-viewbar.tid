@@ -1,0 +1,18 @@
+title: $:/plugins/tw-enc-sync/ui/ViewTemplate/publish-status
+tags: $:/tags/ViewTemplate
+list-after: $:/core/ui/ViewTemplate/tags
+description: Status bar under notes tagged publish:blog: published or not, link to the live post, Publish/Update and Unpublish
+
+\define enc-pub-url() $(enc-pub-prefix)$/blog/$(enc-pub-slug)$/
+<$list filter="[all[current]tag[publish:blog]!is[system]!has[draft.of]]" variable="ignore">
+<div class="enc-pub-bar">
+<$list filter="[all[current]has[publish-sha]]" variable="ignore" emptyMessage="""<span class="enc-pub-state">Blog post · not published yet</span> <$button message="tm-enc-post-preview" param=<<currentTiddler>> class="tc-btn-invisible enc-pub-btn">Preview &amp; publish…</$button>""">
+<$set name="enc-pub-slug" value={{!!publish-slug}}><$set name="enc-pub-prefix" filter="[all[current]field:publish-lang[de]]" value="/de" emptyValue="">
+<span class="enc-pub-state">Blog post · published <$view field="publish-date" format="date" template="DD MMM YYYY, 0hh:0mm"/></span>
+<a class="enc-pub-link" href=<<enc-pub-url>> target="_blank" rel="noopener noreferrer"><<enc-pub-url>> ↗</a>
+<$button message="tm-enc-post-preview" param=<<currentTiddler>> class="tc-btn-invisible enc-pub-btn">Update…</$button>
+<$button message="tm-enc-post-unpublish" param=<<currentTiddler>> class="tc-btn-invisible enc-pub-btn">Unpublish…</$button>
+</$set></$set>
+</$list>
+</div>
+</$list>
